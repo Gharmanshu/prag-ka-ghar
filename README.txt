@@ -12,3 +12,9 @@ LATEST DESIGN UPDATES
 - Scratch-to-reveal wedding date, expandable event timeline, wardrobe gallery, and Google Maps link remain included.
 
 This is a local prototype and is not publicly hosted yet.
+
+
+Version 6 changes:
+- Opening curtain page no longer repeats the couple names/date; names remain on the formal family invitation.
+- Updated the Ganesh emblem to a more ornate gold line illustration.
+- Added subtle floral/lotus-inspired ornamental details to the opening and invitation card.
