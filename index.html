@@ -97,7 +97,7 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
 }
 
 
-/* Version 9: music control */
+/* Version 11: music control */
 .music-toggle{
  position:fixed;right:16px;bottom:16px;z-index:1000;display:none;align-items:center;gap:8px;
  border:1px solid #c7a86b;border-radius:999px;padding:10px 14px;
@@ -137,8 +137,8 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
 </div>
 
 <audio id="weddingMusic" src="./assets/wedding-song.mp3" preload="auto" playsinline loop></audio>
-<button id="musicToggle" class="music-toggle" type="button" aria-label="Pause wedding music" aria-pressed="true" title="Pause or play wedding music">
-  <span class="music-note" aria-hidden="true">♫</span><span id="musicLabel">Music on</span>
+<button id="musicToggle" class="music-toggle paused" type="button" aria-label="Play wedding music" aria-pressed="false" title="Pause or play wedding music">
+  <span class="music-note" aria-hidden="true">♫</span><span id="musicLabel">Starting music…</span>
 </button>
 
 <main>
@@ -186,34 +186,34 @@ const intro=document.getElementById('intro');
 const weddingMusic=document.getElementById('weddingMusic');
 const musicToggle=document.getElementById('musicToggle');
 const musicLabel=document.getElementById('musicLabel');
-let musicStarted=false;
 function updateMusicControl(){
-  const playing=!weddingMusic.paused;
+  const playing=!weddingMusic.paused && !weddingMusic.ended;
   musicToggle.classList.toggle('paused',!playing);
   musicToggle.setAttribute('aria-pressed',String(playing));
   musicToggle.setAttribute('aria-label',playing?'Pause wedding music':'Play wedding music');
   musicLabel.textContent=playing?'Music on':'Play music';
 }
-async function startWeddingMusic(){
+function showMusicFailure(error){
+  musicToggle.classList.add('visible');
+  musicToggle.classList.add('paused');
+  musicLabel.textContent='Tap for music';
+  musicToggle.setAttribute('aria-label','Tap to start wedding music');
+  console.warn('Wedding music could not start:',error);
+}
+function startWeddingMusic(){
   weddingMusic.volume=0.75;
   weddingMusic.muted=false;
-  // Ensure the local MP3 is requested and start playback during the tap gesture.
-  if(weddingMusic.readyState===0) weddingMusic.load();
-  try{
-    await weddingMusic.play();
-    musicStarted=true;
-    musicToggle.classList.add('visible');
+  musicToggle.classList.add('visible');
+  // Call play immediately from the user's click gesture for browser autoplay permissions.
+  const playback=weddingMusic.play();
+  if(playback && typeof playback.then==='function'){
+    playback.then(updateMusicControl).catch(showMusicFailure);
+  }else{
     updateMusicControl();
-  }catch(error){
-    musicToggle.classList.add('visible');
-    musicLabel.textContent='Tap for music';
-    musicToggle.setAttribute('aria-label','Tap to start wedding music');
-    console.warn('Wedding music could not start:',error);
   }
 }
 document.getElementById('openInvite').addEventListener('click',()=>{
   startWeddingMusic();
-  musicToggle.classList.add('visible');
   intro.classList.add('opening');
   document.body.classList.remove('locked');
   const delay=window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:2050;
@@ -222,9 +222,9 @@ document.getElementById('openInvite').addEventListener('click',()=>{
     document.querySelector('.invitation').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
   },delay);
 });
-musicToggle.addEventListener('click',async()=>{
+musicToggle.addEventListener('click',()=>{
   if(weddingMusic.paused){
-    await startWeddingMusic();
+    startWeddingMusic();
   }else{
     weddingMusic.pause();
     updateMusicControl();
@@ -234,8 +234,8 @@ weddingMusic.addEventListener('play',updateMusicControl);
 weddingMusic.addEventListener('pause',updateMusicControl);
 weddingMusic.addEventListener('error',()=>{
   musicToggle.classList.add('visible');
-  musicLabel.textContent='Audio not found';
-  musicToggle.setAttribute('aria-label','Audio file not found; check assets folder');
+  musicLabel.textContent='Audio unavailable';
+  musicToggle.setAttribute('aria-label','Wedding audio unavailable; check assets folder');
   console.error('Wedding MP3 failed to load. Ensure assets/wedding-song.mp3 is uploaded beside index.html.');
 });
 // Scroll reveal
