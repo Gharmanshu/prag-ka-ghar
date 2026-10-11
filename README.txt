@@ -29,3 +29,10 @@ VERSION 7 visual correction:
 
 VERSION 8 spacing fix:
 - Increased bottom breathing room in the invitation card and adjusted the bottom floral vine so it no longer collides with the Agarwal & Turkar Family sign-off.
+
+
+VERSION 9 - Background music:
+- The provided MP3 is included at assets/wedding-song.mp3.
+- Music starts when a guest taps 'Open the invitation' (browser user-gesture requirement).
+- A floating music button allows play/pause while browsing.
+- The track loops and starts at moderate volume.
