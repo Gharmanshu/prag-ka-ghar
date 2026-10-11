@@ -40,11 +40,20 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
 .ganesh-seal svg{width:67px;height:67px}
 .invitation .letter{position:relative}
 .invitation .letter:before{
-  content:"❀  ✧  ❀";display:block;text-align:center;color:#b58b4b;
-  font-size:20px;letter-spacing:.35em;margin:0 auto 14px;opacity:.86
+  content:"❦  ✿  ❧  ❀  ❧  ✿  ❦";
+  display:block;text-align:center;color:#a77a32;
+  font-size:clamp(18px,2.2vw,25px);letter-spacing:.22em;
+  margin:0 auto 17px;opacity:.96;text-shadow:0 1px 0 #fff8e8
 }
 .invitation .letter:after{
-  content:"";position:absolute;inset:10px;pointer-events:none;border:1px solid #d8c18d;opacity:.48
+  content:"";position:absolute;inset:8px;pointer-events:none;
+  border:1px solid #d8bd7d;opacity:.88;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='34' viewBox='0 0 180 34'%3E%3Cg fill='none' stroke='%23b28a45' stroke-width='1.5'%3E%3Cpath d='M0 17 Q20 2 40 17 T80 17 T120 17 T160 17 T180 17'/%3E%3C/g%3E%3Cg fill='%23d8b56b' stroke='%239b7134' stroke-width='.7'%3E%3Ccircle cx='20' cy='14' r='3'/%3E%3Ccircle cx='60' cy='20' r='3'/%3E%3Ccircle cx='100' cy='14' r='3'/%3E%3Ccircle cx='140' cy='20' r='3'/%3E%3C/g%3E%3Cg fill='%23f7e8c4' stroke='%23a77a32' stroke-width='.8'%3E%3Cpath d='M20 5 C12 9 13 14 20 16 C27 14 28 9 20 5Z'/%3E%3Cpath d='M60 10 C52 14 53 19 60 21 C67 19 68 14 60 10Z'/%3E%3Cpath d='M100 5 C92 9 93 14 100 16 C107 14 108 9 100 5Z'/%3E%3Cpath d='M140 10 C132 14 133 19 140 21 C147 19 148 14 140 10Z'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='34' viewBox='0 0 180 34'%3E%3Cg fill='none' stroke='%23b28a45' stroke-width='1.5'%3E%3Cpath d='M0 17 Q20 2 40 17 T80 17 T120 17 T160 17 T180 17'/%3E%3C/g%3E%3Cg fill='%23d8b56b' stroke='%239b7134' stroke-width='.7'%3E%3Ccircle cx='20' cy='14' r='3'/%3E%3Ccircle cx='60' cy='20' r='3'/%3E%3Ccircle cx='100' cy='14' r='3'/%3E%3Ccircle cx='140' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat-x,repeat-x;
+  background-position:top center,bottom center;
+  background-size:180px 34px,180px 34px;
 }
 .section-ganesh{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 8px;
   border:1px solid #c7a86b;border-radius:50%;outline:1px solid #ead9b2;outline-offset:3px;
@@ -56,6 +65,15 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
  .ganesh-seal svg{width:58px;height:58px}
  .opening-flourish{font-size:17px;margin-top:12px}
  .invitation .letter:after{inset:6px}
+}
+
+
+.invitation .letter{padding:clamp(22px,4vw,44px) clamp(16px,3vw,34px);background-color:#fbf7ed}
+.invitation .letter .family-grid,.invitation .letter .closing,.invitation .letter>p{position:relative;z-index:1}
+.invitation .letter:after{border-radius:2px}
+@media(max-width:600px){
+ .invitation .letter:before{letter-spacing:.12em;font-size:17px}
+ .invitation .letter:after{inset:5px;background-size:150px 30px,150px 30px}
 }
 
 </style>
@@ -98,7 +116,7 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
 <path d="M39 63q11 8 22 0M34 71q16 11 32 0M29 80q21 9 42 0M25 87h50"/>
 <path d="M50 62v8c0 8 8 10 13 5 3-4 0-8-5-8"/>
 </g><path d="M46 17l4-6 4 6-4 4z" fill="#9b6b28"/><circle cx="46" cy="33" r="1.7" fill="#9b6b28"/><circle cx="54" cy="33" r="1.7" fill="#9b6b28"/>
-</svg></div><div class="ganesh">॥ श्री गणेशाय नमः ॥</div><p class="mantra">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p><div class="kicker">With love and blessings</div><h2>A heartfelt invitation</h2><p>With hearts filled with joy and gratitude, we invite you to join us as we celebrate the beginning of a beautiful new chapter in the lives of</p><div class="family-grid"><div class="family-card"><div class="family-label">The Bride</div><h3>Pragati Agarwal</h3><p>Granddaughter of Late Chouthmull Agarwal and Late Laxmi Devi<br><br>Daughter of Late Pawan Agarwal and Ranjana Agarwal</p></div><div class="family-card"><div class="family-label">The Groom</div><h3>Gharmanshu Turkar</h3><p>Grandson of Late Manikchand Turkar and Sugrata Turkar<br><br>Son of Delan Singh Turkar and Geeta Turkar</p></div></div><p style="margin-top:28px">Your presence and blessings will make this auspicious occasion even more special. We look forward to celebrating this joyous union with you and creating memories to cherish forever.</p><div class="closing">With love and warm regards,<br>Agarwal & Turkar Family</div></div></section>
+</svg></div><div class="ganesh">॥ श्री गणेशाय नमः ॥</div><p class="mantra">वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥</p><div class="kicker">With love and blessings</div><h2>A heartfelt invitation</h2><p>With hearts filled with joy and gratitude, we invite you to join us in celebrating the beginning of a beautiful new chapter.</p><div class="family-grid"><div class="family-card"><div class="family-label">The Bride</div><h3>Pragati Agarwal</h3><p>Granddaughter of Late Chouthmull Agarwal and Late Laxmi Devi<br><br>Daughter of Late Pawan Agarwal and Ranjana Agarwal</p></div><div class="family-card"><div class="family-label">The Groom</div><h3>Gharmanshu Turkar</h3><p>Grandson of Late Manikchand Turkar and Sugrata Turkar<br><br>Son of Delan Singh Turkar and Geeta Turkar</p></div></div><p style="margin-top:28px">Your presence and blessings will make this auspicious occasion even more special. We look forward to celebrating this joyous union with you and creating memories to cherish forever.</p><div class="closing">With love and warm regards,<br>Agarwal & Turkar Family</div></div></section>
 <section class="scratch-section" id="date-reveal"><div class="section-head reveal"><div class="kicker">A little surprise for you</div><h2>Scratch to reveal the date</h2><p>Make a wish, then gently scratch the heart to uncover the day we say “I do”.</p></div>
 <div class="scratch-wrap reveal" aria-label="Scratch the heart to reveal 14 December 2026"><div class="heart-base"><span class="tiny">The wedding day</span><strong>14</strong><span class="month">December</span><span class="day">MONDAY · 2026</span></div><canvas id="scratchCanvas" class="scratch-canvas" aria-label="Scratch here to reveal the wedding date"></canvas></div><div class="scratch-instruction" id="scratchInstruction">Use your finger or mouse to scratch the heart</div><button class="scratch-reveal" id="revealDate">♡ Reveal the date</button><p class="scratch-note">A little sparkle, a little surprise — and a date to keep close to your heart.</p></section>
 <section class="events" id="events"><div class="section-head reveal"><div class="section-ganesh" aria-label="Lord Ganesha"><svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M35 25c-12-8-22 3-17 15 3 7 12 8 18 2M65 25c12-8 22 3 17 15-3 7-12 8-18 2M37 28c0-11 7-17 13-17s13 6 13 17v14c0 12-7 18-13 18s-13-6-13-18zM37 40c-13 0-17 9-13 18 4 8 15 8 20 3M63 40c13 0 17 9 13 18-4 8-15 8-20 3M50 59v12c0 9 9 12 14 7 4-4 1-10-5-10M39 78c7-5 15-5 22 0M33 87h34"/></svg></div><div class="kicker">The celebrations</div><h2>Two days, five beautiful moments</h2><p>Tap the plus on any event to explore its timeline, ceremony details and dress code. Visit the separate wardrobe planner below for outfit inspiration.</p></div>

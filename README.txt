@@ -19,3 +19,9 @@ VERSION 6 (CORRECTED)
 - Removed the couple names and date from the opening curtain panel.
 - Replaced the simple Ganesha line symbol with an ornate gold-toned emblem.
 - Added subtle floral and ornamental details inspired by traditional Indian wedding invitation design.
+
+
+VERSION 7 visual correction:
+- Removed repeated couple-name heading before bride/groom cards.
+- Reworded invitation sentence to avoid dangling wording.
+- Added visible gold floral vine detailing around the invitation card border.
