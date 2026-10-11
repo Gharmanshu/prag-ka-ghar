@@ -14,7 +14,8 @@ LATEST DESIGN UPDATES
 This is a local prototype and is not publicly hosted yet.
 
 
-Version 6 changes:
-- Opening curtain page no longer repeats the couple names/date; names remain on the formal family invitation.
-- Updated the Ganesh emblem to a more ornate gold line illustration.
-- Added subtle floral/lotus-inspired ornamental details to the opening and invitation card.
+VERSION 6 (CORRECTED)
+- Removed the repeated couple-name heading from the first formal heartfelt invitation section; names remain in the bride/groom family cards and other intended locations.
+- Removed the couple names and date from the opening curtain panel.
+- Replaced the simple Ganesha line symbol with an ornate gold-toned emblem.
+- Added subtle floral and ornamental details inspired by traditional Indian wedding invitation design.
