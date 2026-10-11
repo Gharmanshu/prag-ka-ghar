@@ -52,7 +52,7 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='34' viewBox='0 0 180 34'%3E%3Cg fill='none' stroke='%23b28a45' stroke-width='1.5'%3E%3Cpath d='M0 17 Q20 2 40 17 T80 17 T120 17 T160 17 T180 17'/%3E%3C/g%3E%3Cg fill='%23d8b56b' stroke='%239b7134' stroke-width='.7'%3E%3Ccircle cx='20' cy='14' r='3'/%3E%3Ccircle cx='60' cy='20' r='3'/%3E%3Ccircle cx='100' cy='14' r='3'/%3E%3Ccircle cx='140' cy='20' r='3'/%3E%3C/g%3E%3Cg fill='%23f7e8c4' stroke='%23a77a32' stroke-width='.8'%3E%3Cpath d='M20 5 C12 9 13 14 20 16 C27 14 28 9 20 5Z'/%3E%3Cpath d='M60 10 C52 14 53 19 60 21 C67 19 68 14 60 10Z'/%3E%3Cpath d='M100 5 C92 9 93 14 100 16 C107 14 108 9 100 5Z'/%3E%3Cpath d='M140 10 C132 14 133 19 140 21 C147 19 148 14 140 10Z'/%3E%3C/g%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='34' viewBox='0 0 180 34'%3E%3Cg fill='none' stroke='%23b28a45' stroke-width='1.5'%3E%3Cpath d='M0 17 Q20 2 40 17 T80 17 T120 17 T160 17 T180 17'/%3E%3C/g%3E%3Cg fill='%23d8b56b' stroke='%239b7134' stroke-width='.7'%3E%3Ccircle cx='20' cy='14' r='3'/%3E%3Ccircle cx='60' cy='20' r='3'/%3E%3Ccircle cx='100' cy='14' r='3'/%3E%3Ccircle cx='140' cy='20' r='3'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat:repeat-x,repeat-x;
-  background-position:top center,bottom center;
+  background-position:top center,center calc(100% - 2px);
   background-size:180px 34px,180px 34px;
 }
 .section-ganesh{width:64px;height:64px;display:grid;place-items:center;margin:0 auto 8px;
@@ -74,6 +74,26 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
 @media(max-width:600px){
  .invitation .letter:before{letter-spacing:.12em;font-size:17px}
  .invitation .letter:after{inset:5px;background-size:150px 30px,150px 30px}
+}
+
+
+/* Version 8: keep bottom floral vine clear of the family sign-off */
+.invitation .letter{
+  padding-bottom:clamp(64px,7vw,88px);
+}
+.invitation .letter .closing{
+  position:relative;
+  z-index:2;
+  display:block;
+  margin-bottom:16px;
+  padding-bottom:10px;
+}
+.invitation .letter:after{
+  background-position:top center,center calc(100% - 2px);
+}
+@media(max-width:600px){
+  .invitation .letter{padding-bottom:68px}
+  .invitation .letter .closing{margin-bottom:12px;padding-bottom:8px}
 }
 
 </style>

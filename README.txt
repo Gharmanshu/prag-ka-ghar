@@ -25,3 +25,7 @@ VERSION 7 visual correction:
 - Removed repeated couple-name heading before bride/groom cards.
 - Reworded invitation sentence to avoid dangling wording.
 - Added visible gold floral vine detailing around the invitation card border.
+
+
+VERSION 8 spacing fix:
+- Increased bottom breathing room in the invitation card and adjusted the bottom floral vine so it no longer collides with the Agarwal & Turkar Family sign-off.
