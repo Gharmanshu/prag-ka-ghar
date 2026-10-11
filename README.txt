@@ -36,3 +36,9 @@ VERSION 9 - Background music:
 - Music starts when a guest taps 'Open the invitation' (browser user-gesture requirement).
 - A floating music button allows play/pause while browsing.
 - The track loops and starts at moderate volume.
+
+
+VERSION 10 - Music playback fix:
+- Updated audio startup with explicit load/play handling, louder default volume, and error feedback.
+- The MP3 uses a relative ./assets/wedding-song.mp3 path. Upload the assets folder beside index.html.
+- If the browser blocks playback, tap the floating Play music button after the curtain opens.

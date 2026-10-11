@@ -136,7 +136,7 @@ section{padding:78px 20px}.section-head{text-align:center;max-width:650px;margin
   </div>
 </div>
 
-<audio id="weddingMusic" src="assets/wedding-song.mp3" preload="auto" loop></audio>
+<audio id="weddingMusic" src="./assets/wedding-song.mp3" preload="auto" playsinline loop></audio>
 <button id="musicToggle" class="music-toggle" type="button" aria-label="Pause wedding music" aria-pressed="true" title="Pause or play wedding music">
   <span class="music-note" aria-hidden="true">♫</span><span id="musicLabel">Music on</span>
 </button>
@@ -186,6 +186,7 @@ const intro=document.getElementById('intro');
 const weddingMusic=document.getElementById('weddingMusic');
 const musicToggle=document.getElementById('musicToggle');
 const musicLabel=document.getElementById('musicLabel');
+let musicStarted=false;
 function updateMusicControl(){
   const playing=!weddingMusic.paused;
   musicToggle.classList.toggle('paused',!playing);
@@ -193,13 +194,25 @@ function updateMusicControl(){
   musicToggle.setAttribute('aria-label',playing?'Pause wedding music':'Play wedding music');
   musicLabel.textContent=playing?'Music on':'Play music';
 }
-document.getElementById('openInvite').addEventListener('click',()=>{
-  // Start playback directly inside the guest's tap gesture so mobile browsers permit it.
-  weddingMusic.volume=0.42;
-  const playAttempt=weddingMusic.play();
-  if(playAttempt && typeof playAttempt.catch==='function'){
-    playAttempt.catch(()=>{musicLabel.textContent='Tap for music';musicToggle.classList.add('visible');});
+async function startWeddingMusic(){
+  weddingMusic.volume=0.75;
+  weddingMusic.muted=false;
+  // Ensure the local MP3 is requested and start playback during the tap gesture.
+  if(weddingMusic.readyState===0) weddingMusic.load();
+  try{
+    await weddingMusic.play();
+    musicStarted=true;
+    musicToggle.classList.add('visible');
+    updateMusicControl();
+  }catch(error){
+    musicToggle.classList.add('visible');
+    musicLabel.textContent='Tap for music';
+    musicToggle.setAttribute('aria-label','Tap to start wedding music');
+    console.warn('Wedding music could not start:',error);
   }
+}
+document.getElementById('openInvite').addEventListener('click',()=>{
+  startWeddingMusic();
   musicToggle.classList.add('visible');
   intro.classList.add('opening');
   document.body.classList.remove('locked');
@@ -209,9 +222,9 @@ document.getElementById('openInvite').addEventListener('click',()=>{
     document.querySelector('.invitation').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
   },delay);
 });
-musicToggle.addEventListener('click',()=>{
+musicToggle.addEventListener('click',async()=>{
   if(weddingMusic.paused){
-    weddingMusic.play().then(updateMusicControl).catch(()=>{musicLabel.textContent='Music unavailable';});
+    await startWeddingMusic();
   }else{
     weddingMusic.pause();
     updateMusicControl();
@@ -219,6 +232,12 @@ musicToggle.addEventListener('click',()=>{
 });
 weddingMusic.addEventListener('play',updateMusicControl);
 weddingMusic.addEventListener('pause',updateMusicControl);
+weddingMusic.addEventListener('error',()=>{
+  musicToggle.classList.add('visible');
+  musicLabel.textContent='Audio not found';
+  musicToggle.setAttribute('aria-label','Audio file not found; check assets folder');
+  console.error('Wedding MP3 failed to load. Ensure assets/wedding-song.mp3 is uploaded beside index.html.');
+});
 // Scroll reveal
 if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
 // Event accordion; keep the opened panel and its + control in sync
